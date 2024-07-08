@@ -156,18 +156,18 @@ public class RainScreen extends Skill {
             Set<Integer> swordID = ssPlayer.getSwordScreensID();
 
             for(int i = 0; i < 4; i++){
-                    RainScreenSwordEntity sword = ModEntities.RAIN_SCREEN_SWORD.get().spawn(player.serverLevel(), player.getOnPos(), MobSpawnType.MOB_SUMMONED);
-                    if(sword == null){
-                        return;
-                    }
-                    sword.setRider(player);
-                    sword.setItemStack(player.getMainHandItem());
-                    PacketRelay.sendToAll(PacketHandler.INSTANCE, new SyncSwordOwnerPacket(player.getId(), sword.getId()));
-                    sword.setSwordID(i);
-                    sword.setPos(player.getPosition(0.5f).add(sword.getOffset()));
-                    ssPlayer.setSwordScreenEntityCount(ssPlayer.getSwordScreenEntityCount()+1);
-                    swordID.add(sword.getId());
+                RainScreenSwordEntity sword = ModEntities.RAIN_SCREEN_SWORD.get().spawn(player.serverLevel(), player.getOnPos(), MobSpawnType.MOB_SUMMONED);
+                if(sword == null){
+                    return;
                 }
+                sword.setRider(player);
+                sword.setItemStack(player.getMainHandItem());
+                PacketRelay.sendToAll(PacketHandler.INSTANCE, new SyncSwordOwnerPacket(player.getId(), sword.getId()));
+                sword.setSwordID(i);
+                sword.setPos(player.getPosition(0.5f).add(sword.getOffset()));
+                ssPlayer.setSwordScreenEntityCount(ssPlayer.getSwordScreenEntityCount()+1);
+                swordID.add(sword.getId());
+            }
 
         });
     }

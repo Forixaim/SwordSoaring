@@ -29,6 +29,7 @@ public class ModItemTabs {
                     .displayItems((parameters, tabData) -> {
 
                         tabData.accept(ModItems.LOONG_ROAR.get());
+                        tabData.accept(ModItems.SHATTERED_STAR.get());
 
                     }).build());
 

@@ -57,12 +57,14 @@ public class ModAnimations {
     public static StaticAnimation STELLAR_RESTORATION_PRE0;
     public static StaticAnimation AGONY_PLUNGE_FORWARD;
 
+
+    public static StaticAnimation LOONG_ROAR_IDLE;
+    public static StaticAnimation LOONG_ROAR_HOLD;
     public static StaticAnimation LOONG_ROAR_AUTO1;
     public static StaticAnimation LOONG_ROAR_AUTO2;
     public static StaticAnimation LOONG_ROAR_AUTO3;
     public static StaticAnimation LOONG_ROAR_AUTO4;
     public static StaticAnimation LOONG_ROAR_AUTO5;
-    public static StaticAnimation LOONG_ROAR_IDLE;
     public static StaticAnimation LOONG_ROAR_HEAVY;
     public static StaticAnimation LOONG_ROAR_HEAVY_ALL;
     public static StaticAnimation STELLAR_SWEEP;
@@ -154,7 +156,10 @@ public class ModAnimations {
         }, AnimationEvent.Side.SERVER));
 
         //匣里龙吟
-        LOONG_ROAR_IDLE = new StaticAnimation(true, "biped/loong_roar/idle", biped);
+        LOONG_ROAR_IDLE = new StaticAnimation(0.2f, true, "biped/loong_roar/idle", biped)
+                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.2f);
+
+        LOONG_ROAR_HOLD = new StaticAnimation(true, "biped/loong_roar/walk", biped);
         LOONG_ROAR_AUTO1 = (new BasicAttackAnimation(0.05F, 0.25F, 0.35F, 0.25F, null, biped.toolR, "biped/loong_roar/attack_1", biped))
                 .addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.6F))
                 .addProperty(AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.2F).addProperty(AttackAnimationProperty.ATTACK_SPEED_FACTOR, 0.5F);

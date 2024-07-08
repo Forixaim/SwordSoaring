@@ -9,6 +9,11 @@ import java.util.function.Consumer;
 
 @OnlyIn(Dist.CLIENT)
 public class ClientHelper {
+
+    /**
+     * 真的有用吗。。。
+     * @param rider
+     */
     public static void getLocalPlayer(Player rider) {
         rider =  Minecraft.getInstance().player;
     }

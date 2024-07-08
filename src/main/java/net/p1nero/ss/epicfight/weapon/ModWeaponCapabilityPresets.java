@@ -42,7 +42,7 @@ public class ModWeaponCapabilityPresets {
                     ModAnimations.LOONG_ROAR_IDLE)
             .livingMotionModifier(CapabilityItem.Styles.TWO_HAND,
                     LivingMotions.WALK,
-                    Animations.BIPED_HOLD_LONGSWORD)
+                    ModAnimations.LOONG_ROAR_HOLD)
             .livingMotionModifier(CapabilityItem.Styles.TWO_HAND,
                     LivingMotions.CHASE,
                     Animations.BIPED_RUN_LONGSWORD)
@@ -51,7 +51,7 @@ public class ModWeaponCapabilityPresets {
                     Animations.BIPED_RUN_LONGSWORD)
             .livingMotionModifier(CapabilityItem.Styles.TWO_HAND,
                     LivingMotions.SWIM,
-                    Animations.BIPED_HOLD_LONGSWORD)
+                    ModAnimations.LOONG_ROAR_HOLD)
             .livingMotionModifier(CapabilityItem.Styles.TWO_HAND,
                     LivingMotions.BLOCK,
                     Animations.LONGSWORD_GUARD);
