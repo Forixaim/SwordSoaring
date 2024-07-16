@@ -51,6 +51,7 @@ public class SwordSoaring {
         ModEnchantments.ENCHANTMENTS.register(bus);
         //我可以用SubscribeEvent的，但是之前这样写就懒得改了
         fg_bus.addListener(ModSkills::BuildSkills);
+        //史诗战斗的updateContainer就是tick事件！
         fg_bus.addListener(RainScreen::onPlayerTick);
         fg_bus.addListener(RainCutter::onPlayerTick);
         fg_bus.addListener(SwordSoaringSkill::onPlayerTick);
@@ -107,7 +108,9 @@ public class SwordSoaring {
          */
         @SubscribeEvent
         public static void modifyVanillaLootPools(final LootTableLoadEvent event) {
-
+            if(!Config.ENABLE_LOOT_TABLE.get()){
+                return;
+            }
             int modifier = ConfigManager.SKILL_BOOK_CHEST_LOOT_MODIFYER.get();
             int dropChance = 100 + modifier;
             int antiDropChance = 100 - modifier;
@@ -118,10 +121,10 @@ public class SwordSoaring {
                         .add(LootItem.lootTableItem(EpicFightItems.SKILLBOOK.get()).apply(SetSkillFunction.builder(
                                 "sword_soaring:sword_soaring",
                                 "sword_soaring:rain_cutter",
-                                "sword_soaring:yaksha_mask",
+//                                "sword_soaring:yaksha_mask",
                                 "sword_soaring:stellar_restoration",
                                 "sword_soaring:rain_screen"
-                        )).when(LootItemRandomChanceCondition.randomChance(dropChanceModifier)))
+                        )).when(LootItemRandomChanceCondition.randomChance(dropChanceModifier * 0.4F)))
                         .build());
             }
 
@@ -130,10 +133,9 @@ public class SwordSoaring {
                         .add(LootItem.lootTableItem(EpicFightItems.SKILLBOOK.get()).apply(SetSkillFunction.builder(
                                 "sword_soaring:sword_soaring",
                                 "sword_soaring:rain_cutter",
-                                "sword_soaring:yaksha_mask",
                                 "sword_soaring:stellar_restoration",
                                 "sword_soaring:rain_screen"
-                        ))).when(LootItemRandomChanceCondition.randomChance(dropChanceModifier))
+                        ))).when(LootItemRandomChanceCondition.randomChance(dropChanceModifier * 0.4F))
                         .build());
             }
 
@@ -142,10 +144,9 @@ public class SwordSoaring {
                         .add(LootItem.lootTableItem(EpicFightItems.SKILLBOOK.get()).apply(SetSkillFunction.builder(
                                 "sword_soaring:sword_soaring",
                                 "sword_soaring:rain_cutter",
-                                "sword_soaring:yaksha_mask",
                                 "sword_soaring:stellar_restoration",
                                 "sword_soaring:rain_screen"
-                        )).when(LootItemRandomChanceCondition.randomChance(dropChanceModifier)))
+                        )).when(LootItemRandomChanceCondition.randomChance(dropChanceModifier * 0.4F)))
                         .build());
             }
 
@@ -154,10 +155,9 @@ public class SwordSoaring {
                         .add(LootItem.lootTableItem(EpicFightItems.SKILLBOOK.get()).apply(SetSkillFunction.builder(
                                 "sword_soaring:sword_soaring",
                                 "sword_soaring:rain_cutter",
-                                "sword_soaring:yaksha_mask",
                                 "sword_soaring:stellar_restoration",
                                 "sword_soaring:rain_screen"
-                        )).when(LootItemRandomChanceCondition.randomChance(dropChanceModifier)))
+                        )).when(LootItemRandomChanceCondition.randomChance(dropChanceModifier * 0.01F)))
                         .build());
             }
 
@@ -166,7 +166,7 @@ public class SwordSoaring {
                         .add(LootItem.lootTableItem(EpicFightItems.SKILLBOOK.get()).apply(SetSkillFunction.builder(
                                 "sword_soaring:sword_soaring",
                                 "sword_soaring:rain_cutter",
-                                "sword_soaring:yaksha_mask",
+//                                "sword_soaring:yaksha_mask",
                                 "sword_soaring:stellar_restoration",
                                 "sword_soaring:rain_screen"
                         ))).when(LootItemRandomChanceCondition.randomChance(dropChanceModifier * 0.3F))

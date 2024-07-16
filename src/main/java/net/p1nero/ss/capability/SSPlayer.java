@@ -11,6 +11,7 @@ import java.util.Set;
 
 /**
  * 记录飞行和技能使用的状态，被坑了，这玩意儿也分服务端和客户端...
+ * 史诗战斗是有自己的dataKey的，千万别学我用这个！
  */
 public class SSPlayer {
     public boolean isPlayingAnim;

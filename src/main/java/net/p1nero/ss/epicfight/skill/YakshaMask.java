@@ -270,7 +270,7 @@ public class YakshaMask extends Skill {
         PoseStack poseStack = guiGraphics.pose();
         poseStack.pushPose();
         poseStack.translate(0, (float)gui.getSlidingProgression(), 0);
-        guiGraphics.blit(ModSkills.YAKSHA_MASK.getSkillTexture(), (int)x, (int)y, 24, 24, 0, 0, 1, 1, 1, 1);
+        guiGraphics.blit(getSkillTexture(), (int)x, (int)y, 24, 24, 0, 0, 1, 1, 1, 1);
         guiGraphics.drawString(gui.font, String.format("%d", (ssPlayer.yakshaMaskCooldownTimer / 40)), x + 6, y + 6, 16777215, true);
         poseStack.popPose();
     }

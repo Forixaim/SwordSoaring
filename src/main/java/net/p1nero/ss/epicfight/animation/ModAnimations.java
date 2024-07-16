@@ -99,8 +99,9 @@ public class ModAnimations {
         }, AnimationEvent.Side.CLIENT));
 
         FLY_ON_SWORD_BASIC = new StaticAnimation(false, "biped/fly_on_sword_beginner", biped).addStateRemoveOld(EntityState.CAN_BASIC_ATTACK, true)
-                .addStateRemoveOld(EntityState.CAN_SKILL_EXECUTION, true)
+                .addStateRemoveOld(EntityState.CAN_SKILL_EXECUTION, false)
                 .addStateRemoveOld(EntityState.INACTION, true)
+                .addStateRemoveOld(EntityState.CAN_BASIC_ATTACK, false)
                 .addEvents(AnimationProperty.StaticAnimationProperty.ON_BEGIN_EVENTS, AnimationEvent.create((entitypatch, animation, params) -> {
                     if(entitypatch instanceof ServerPlayerPatch serverPlayerPatch){
                         serverPlayerPatch.getOriginal().getCapability(SSCapabilityProvider.SS_PLAYER).ifPresent(ssPlayer -> {
